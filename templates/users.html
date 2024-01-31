@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for user in users %}
+    <li>Username: {{ user.username }}</li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for sum in summary %}
+    <li><p>user id: {{ sum.user_id }}</p>
+        <p>original text: {{ sum.text_to_summarize }}</p>
+        <p>summary: {{ sum.generated_summary }}</p>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

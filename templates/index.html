@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='indexStyles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <title>Speech to text summary</title>
+</head>
+<body>
+<div class="header">
+    <div class="header-text"><b>Speech to Text Summary</b></div>
+</div>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/history">Records</a>
+    <a href="/logout">Logout</a>
+</div>
+ <div class="container">
+        <div class="button-container">
+            <form method="POST" action="/start_recording">
+                <button type="submit" class="start-button" onclick="showAlert(event)">Start Recording</button>
+            </form>
+            <!--<form method="POST" action="/stop_recording">
+                --><button class="stop-button" onclick="stopRecordingWithPopup(event)" >Stop Recording</button>
+            <!-- </form> -->
+        </div>
+        <div class="row-button-container">
+            <form method="POST" action="/a">
+                <div class="text-areas-container">
+            <textarea class="text-area" name="rawtext" id="generated_text" placeholder="Text Area 1"></textarea>
+<!--            <textarea class="text-area" id="summarized_text" placeholder="Text Area 2"></textarea>-->
+            </div>
+                <button type="submit" class="summarize" value="submit">Summarize</button>
+            </form>
+
+<!--            <form action="/a" method="POST">-->
+<!--                <textarea name="rawtext" class="form-control", rows=10 placeholder="Enter the complete text"></textarea>-->
+<!--                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>-->
+<!--            </form>-->
+        </div>
+
+
+
+    </div>
+     <script>
+    function updateRecognizedText(result) {
+        const recognizedTextElement = document.getElementById('generated_text');
+        recognizedTextElement.value = result;
+    }
+
+    function showAlert() {
+    alert ("Recording started");
+  }
+
+  function stopRecordingWithPopup(event) {
+    // Show a pop-up message here
+    alert("Recording has been stopped!");
+
+    // Perform the original action
+    fetchSpeechToTextResult(event);
+}
+
+
+    function fetchSpeechToTextResult() {
+        fetch('/stop_recording', {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => {
+            updateRecognizedText(data.text_result);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech-to-Text Editor</title>
+</head>
+<body>
+    <h1>Transcribed Text:</h1>
+    <div id="transcription">{{ transcribed_text }}</div>
+
+    <h2>Edit Text:</h2>
+    <textarea id="text-editor" rows="4" cols="50">{{ transcribed_text }}</textarea>
+
+    <button id="save-button">Save</button>
+
+    <script>
+        // JavaScript to handle editing and saving the text
+        const transcriptionDiv = document.getElementById('transcription');
+        const textEditor = document.getElementById('text-editor');
+        const saveButton = document.getElementById('save-button');
+
+        saveButton.addEventListener('click', () => {
+            transcriptionDiv.innerText = textEditor.value;
+        });
+    </script>
+</body>
+</html>

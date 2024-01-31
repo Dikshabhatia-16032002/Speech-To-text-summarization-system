@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='style_history.css') }}">
+    --><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <title>User History</title>
+</head>
+<style>/* Apply styles to the table and table headers */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+table th {
+    background-color: #333; /*f2f2f2;*/
+    color: #fff; /*333;*/
+    font-weight: bold;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Style table rows and alternate row background color */
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table tr:hover {
+    background-color:#ddd;
+}
+
+/* Style the header and user information */
+.header {
+  background-color: #e6ffcc;
+  padding: 10px ;
+  margin-bottom: 0px;
+  height: 40px;
+  font-color: #000000;
+}
+.header-text {
+    display: flex;
+    flex-direction: column;
+    font-color: #000000;
+    font-size: 40px;
+    text-align: center;
+}
+
+.user-info {
+    float: right;
+    margin-left: 10px;
+    align: right;
+}
+
+/* Style the entire page background */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e6ffcc;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+/* Style the navigation bar */
+.topnav {
+    background-color: #000000;
+    overflow: hidden;
+    color: #fff;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    align: left;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: #333;
+}
+
+/* Center the content on the page */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+</style>
+<body>
+<div class="header">
+    <div class="header-text"><b>Speech to Text Summary</b></div>
+
+</div>
+
+<!--<div class="header">
+    <div class="header-text"><b>User History</b></div>
+</div>-->
+<div class="topnav">
+    <a href="/index">Home</a>
+
+<span class="user-info">
+        {% for user in users %}<a id="username">{{ user.username }}</a>{% endfor %} <!-- Placeholder for the username -->
+        <a style="float:right" href="/logout">Logout</a> <!-- Logout button -->
+    </span> 
+
+</div>
+<div class="container">
+    <h2><b>User History:
+    {% for user in users %}
+    <span id="user-username">{{ user.username }}</span></b>
+    {% endfor %}
+    </h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Text</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sum in summary %}
+            <tr>
+                <td>{{ sum.text_to_summarize }}</td>
+                <td>{{ sum.generated_summary }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table></div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* Add this CSS to your existing styles.css file */
+
+body {
+  font-family: 'Cambria';
+  margin: 0;
+  padding: 0;
+  background-color: #e6ffcc;
+  text-align: center;
+}
+.header-text {
+    display: flex;
+    flex-direction: column;
+    font-color: #000000;
+    font-size: 40px;
+
+}
+
+/abc4ff/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.header {
+  background-color: #e6ffcc;
+  padding: 10px ;
+  margin-bottom: 0px;
+  height: 40px;
+  font-color: #000000;
+/*
+    float:left;
+    font-weight:600;
+    font-size:25px;
+    padding-top:1%;
+    padding-left:0.5%;
+    background-image: linear-gradient(to left,#9933ff, #b366ff);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;"
+
+  /*
+  border-radius: 10px;
+  margin-bottom: 50px;
+  margin-top: 0px;
+height: 10vh;
+*/}
+/c1d3fe/
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+
+}
+.row-button-container {
+display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 0px;
+
+}
+
+.start-button {
+  background-color: #F3B9BB;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.stop-button {
+  background-color: #83b0e1;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.summarize {
+ background-color: #96858f;
+  color: #fff;
+  /*display: flex;
+  flex-direction: column;*/
+  padding: 15px 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 10px;
+
+  transition: background-color 0.3s ease;
+
+}
+
+.start-button:hover {
+  background-color: #ec8385;
+}
+
+.stop-button:hover {
+  background-color: #468AD2;
+}
+.summarize:hover {
+background-color: #8a7782;
+}
+
+.text-areas-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.text-area {
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.topnav {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #000000;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  font-size: 20px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color:black;
+}

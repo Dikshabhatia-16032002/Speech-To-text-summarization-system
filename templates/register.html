@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#e6ffcc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+            <div id="error-message">
+            {% if error_message %}
+                <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+            </div>
+
+
+        <form method="POST" onsubmit="return validateRegistrationForm()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="mobilenumber">Mobile Number</label>
+                <input type="text" name="mobilenumber" id="mobilenumber" autocomplete="off" value="" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" formaction="/send-otp">Send OTP</button>
+            </div>
+        </form>
+
+
+
+        <script>
+    function validateRegistrationForm() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        if (username.trim() === '') {
+            errorMessage.innerText = 'Please enter a username.';
+            return false; // Prevent form submission
+        }
+
+        if (password.trim() === '') {
+            errorMessage.innerText = 'Please enter a password.';
+            return false; // Prevent form submission
+        }
+
+        // If all checks pass, allow the form submission
+        return true;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const verificationForm = document.getElementById('verification-form');
+    const sendCodeButton = document.getElementById('send-code');
+    const verifyCodeButton = document.getElementById('verify-code');
+    const messageDiv = document.getElementById('message');
+
+    // Send Verification Code
+    sendCodeButton.addEventListener('click', function() {
+        const mobileNumber = document.getElementById('mobile_number').value;
+        // Send the mobile number to the server to initiate code sending
+        // Display the response message in the messageDiv
+    });
+
+    // Verify Code
+    verifyCodeButton.addEventListener('click', function() {
+        const verificationCode = document.getElementById('verification_code').value;
+        const mobileNumber = document.getElementById('mobile_number').value;
+        // Send the code and mobile number to the server for verification
+        // Display the response message in the messageDiv
+    });
+});
+</script>
+
+    </div>
+</body>
+</html>
